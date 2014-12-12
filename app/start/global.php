@@ -79,3 +79,15 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+App::missing(function($exception)
+{
+    
+    Log::info('This is some useful information.');
+
+    Log::warning('Something could be going wrong.');
+
+    Log::error('Something is really going wrong.');
+    
+    return Response::view('404', array(), 404);
+});
